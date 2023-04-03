@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Joke from './joke'
+import jokeData from "./jokeData";
+import Navbar from "./navbar";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App(){
+    const jokeElement = jokeData.map(joke =>{
+        return <Joke img={joke.img} location={joke.location} name={joke.name} link={joke.link} title={joke.title} date ={joke.date} descrption ={joke.descrption}/>
+    })
+    
+    return(
+           
+           <div>
+             <Navbar />
+             {jokeElement}
+            </div> 
+        
+    )
 }
-
-export default App;
